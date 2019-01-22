@@ -39,12 +39,10 @@ module.exports = function(app) {
     var totalCurrentScore = 0
     var bestMatch=100
     var bestMatchID=0
-    console.log(friends)
-    console.log(newScore)
+
     for (i=0; i<friends.length; i++){
         for (j=0; j<friends[i].scores.length; j++){
             totalCurrentScore = totalCurrentScore + Math.abs(friends[i].scores[j] - newScore[j])
-            console.log(i + " " + j + " "+totalCurrentScore)
         }
         if (i==0){
             bestMatch=totalCurrentScore
@@ -57,7 +55,6 @@ module.exports = function(app) {
         totalCurrentScore=0;
     }
       friends.push(req.body);
-      console.log(totalCurrentScore)
 
       res.json(friends[bestMatchID]);
     
